@@ -7,7 +7,7 @@
   <meta name="description" content="Help Mila &amp; Lienka reach their $3,000 fundraiser goal. Two ORDMAK basketball players from Canterbury, Christchurch NZ."/>
   <meta property="og:title" content="Help Mila &amp; Lienka – ORDMAK Basketball · $3,000 Goal"/>
   <meta property="og:description" content="Two Canterbury sisters chasing their dream. Every donation counts."/>
-  <meta property="og:image" content="media/hero2.png"/>
+  <meta property="og:image" content="media/court-jump.jpg"/>
   <meta property="og:type" content="website"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"/>
@@ -79,7 +79,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('media/hero2.png') center top / cover no-repeat;
+      background: url('media/hero2.png') center 65% / cover no-repeat;
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -115,23 +115,23 @@
       color: rgba(255,255,255,0.62); margin-bottom: 2rem;
     }
     .hero-stats {
-      display: flex; max-width: 540px;
+      display: grid; grid-template-columns: repeat(3, 1fr); max-width: 540px;
       background: rgba(22,24,31,0.88);
       border: 1px solid rgba(232,89,10,0.22);
       border-radius: var(--radius); overflow: hidden;
       margin-bottom: 1.2rem;
     }
     .hstat {
-      flex: 1; padding: 1.1rem 1.3rem;
+      padding: 1rem 1rem;
       border-right: 1px solid rgba(255,255,255,0.05);
     }
     .hstat:last-child { border-right: none; }
     .hstat-label {
-      font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.22rem;
     }
     .hstat-val {
-      font-size: 1.55rem; font-weight: 900; letter-spacing: -0.02em;
+      font-size: clamp(1.1rem, 4.5vw, 1.55rem); font-weight: 900; letter-spacing: -0.02em;
     }
     .hstat-val.c-orange { color: var(--orange); }
     .hstat-val.c-gold   { color: var(--gold); }
@@ -350,6 +350,27 @@
     }
     .copy-confirm.show { display: block; }
 
+    /* VIDEOS */
+    .videos { background: var(--dark2); }
+    .video-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    }
+    .video-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--dark3); position: relative;
+      box-shadow: var(--shadow);
+    }
+    .video-card video {
+      width: 100%; display: block;
+      max-height: 340px; object-fit: cover;
+      background: #000;
+    }
+    .video-card-label {
+      padding: 0.8rem 1rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--orange);
+    }
+
     /* LEDGER */
     .ledger { background: var(--dark2); }
     .ledger-empty { text-align: center; padding: 3.5rem; color: var(--muted); }
@@ -407,29 +428,42 @@
       .story-photo img { height: 340px; }
     }
     @media (max-width: 768px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      /* Mobile hero: swap to best action shot, reposition for portrait crop */
+      .hero { min-height: 85vh; }
+      .hero-bg { background-image: url('media/court-jump.jpg'); background-position: center 18%; }
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .gallery-item.span2 { grid-column: span 2; }
       .gallery-item.full  { grid-column: span 2; }
+      .gallery-item img { height: 160px; }
+      .gallery-item.span2 img { height: 200px; }
+      .gallery-item.full img { height: 200px; }
+      .gallery-item.tall img { height: 260px; }
+      /* Donate / goal */
       .donate-grid { grid-template-columns: 1fr; }
       .goal-cards { gap: 0.8rem; }
+      /* Atmos */
       .atmos-overlay { padding: 0 2rem; }
+      /* Video grid: stack on mobile */
+      .video-grid { grid-template-columns: 1fr; }
+      /* Nav */
       .nav-tagline { display: none; }
-      .jersey-divider { gap: 1.5rem; }
+      /* Jersey divider: hide numbers on sides to prevent overflow */
+      .jersey-divider { gap: 1rem; }
+      .jersey-num:first-child,
+      .jersey-num:last-child { display: none; }
     }
     @media (max-width: 520px) {
-      .section { padding: 3.5rem 1.2rem; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item.span2 img,
-      .gallery-item.full img,
-      .gallery-item img { height: 220px; }
-      .gallery-item.span2 { grid-column: span 1; }
-      .gallery-item.full  { grid-column: span 1; }
-      .gallery-item.tall img { height: 260px; }
-      .atmos { height: 300px; }
-      .atmos-inner h2 { font-size: 1.4rem; }
-      nav { padding: 0 1.2rem; }
-      .hero-stats { flex-wrap: wrap; }
-      .hstat { flex: 0 0 50%; }
+      .section { padding: 3rem 1rem; }
+      /* Keep 2-col gallery — show more photos above fold */
+      .gallery-grid { gap: 0.4rem; }
+      .gallery-item img { height: 140px; }
+      .gallery-item.span2 img { height: 176px; }
+      .gallery-item.full img  { height: 176px; }
+      .gallery-item.tall img  { height: 220px; }
+      .atmos { height: 280px; }
+      .atmos-inner h2 { font-size: 1.3rem; }
+      nav { padding: 0 1rem; }
     }
   </style>
 </head>
@@ -560,6 +594,38 @@
     </div>
   </div>
 </div>
+
+<!-- COURT FOOTAGE -->
+<section class="section videos">
+  <div class="section-inner">
+    <div class="section-eyebrow">Court Footage</div>
+    <h2 class="section-title">Watch them play.</h2>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <video
+          src="media/vid19.mp4"
+          poster="media/court-jump.jpg"
+          controls
+          playsinline
+          preload="none"
+          aria-label="ORDMAK basketball game footage — Canterbury Recreation Centre"
+        ></video>
+        <div class="video-card-label">Game Day · Canterbury Rec Centre</div>
+      </div>
+      <div class="video-card reveal">
+        <video
+          src="media/vid20.mp4"
+          poster="media/court-game.jpg"
+          controls
+          playsinline
+          preload="none"
+          aria-label="ORDMAK full court footage — McAlpines Sports Centre"
+        ></video>
+        <div class="video-card-label">Full Court · McAlpines Sports Centre</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- GOAL SECTION -->
 <section class="section goal-section">
