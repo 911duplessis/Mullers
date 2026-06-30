@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Mila & Lienka | Sports Fundraiser 🇳🇿</title>
+  <meta name="description" content="Two Christchurch sisters need your help to raise $3,000 NZD for their sports journey. Every dollar counts — donate today.">
+  <meta property="og:title" content="Help Mila & Lienka Reach $3,000 🇳🇿">
+  <meta property="og:description" content="Two Christchurch sisters chasing their sports dreams. Watch their journey and help them get there.">
+  <meta property="og:image" content="media/hero.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #00843D;
+      --green2: #006B31;
+      --black:  #111111;
+      --navy:   #0D1B2A;
+      --white:  #FFFFFF;
+      --cream:  #F9F6F1;
+      --gold:   #E8A020;
+      --text:   #2C2C2C;
+      --muted:  #666;
+      --border: #E2E2E2;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 32px;
+      background: rgba(13,27,42,0.88);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { color: white; font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: .5px; }
+    .nav-cta {
+      background: var(--green); color: white; border: none;
+      padding: 10px 24px; border-radius: 50px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--green2); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: brightness(.55);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(0,0,0,.5) 0%, rgba(0,132,61,.3) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; color: white;
+      max-width: 760px; padding: 32px 24px;
+    }
+    .hero-eyebrow {
+      display: inline-block; background: var(--green); color: white;
+      font-size: .78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 50px; margin-bottom: 24px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 18px; text-shadow: 0 2px 20px rgba(0,0,0,.4);
+    }
+    .hero-content p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      opacity: .92; margin-bottom: 36px; font-weight: 300; letter-spacing: .3px;
+    }
+    .goal-block {
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(8px); border-radius: var(--radius);
+      padding: 24px 32px; margin-bottom: 32px;
+    }
+    .goal-numbers {
+      display: flex; justify-content: center; gap: 48px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .goal-stat span { display: block; }
+    .goal-stat .num {
+      font-family: 'Playfair Display', serif; font-size: 2.4rem;
+      font-weight: 900; color: white;
+    }
+    .goal-stat .lbl { font-size: .78rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: .75; }
+    .progress-wrap { background: rgba(255,255,255,.2); border-radius: 50px; height: 10px; overflow: hidden; }
+    .progress-fill {
+      height: 100%; background: linear-gradient(90deg, var(--green), #00d46a);
+      border-radius: 50px; width: 0%;
+      transition: width 2s cubic-bezier(.4,0,.2,1);
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green); color: white; font-size: 1.05rem; font-weight: 700;
+      padding: 16px 36px; border-radius: 50px; text-decoration: none;
+      border: none; cursor: pointer; transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--green2); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: white; font-size: 1.05rem; font-weight: 600;
+      padding: 16px 36px; border-radius: 50px; text-decoration: none;
+      border: 2px solid rgba(255,255,255,.55); cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,.1); }
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.6); font-size: .8rem; letter-spacing: 1px; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 8px; animation: bounce 2s infinite;
+    }
+    .scroll-hint svg { opacity: .6; }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--navy); margin-bottom: 20px; line-height: 1.2;
+    }
+    .lead { font-size: 1.12rem; color: var(--muted); max-width: 680px; line-height: 1.75; }
+
+    /* ─── STORY ─── */
+    #story { border-top: none; }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; align-items: start;
+    }
+    .story-text p { margin-bottom: 18px; color: var(--text); line-height: 1.8; font-size: 1.02rem; }
+    .story-text strong { color: var(--navy); }
+    .story-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 28px; border-left: 4px solid var(--green);
+    }
+    .story-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+    .story-card p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+    .story-cards { display: flex; flex-direction: column; gap: 18px; }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--navy); border-radius: var(--radius);
+      padding: 24px 36px; display: flex; gap: 32px; justify-content: center;
+      align-items: center; flex-wrap: wrap; margin-bottom: 64px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: white; }
+    .trust-item .icon { font-size: 1.4rem; }
+    .trust-item span { font-size: .88rem; font-weight: 500; opacity: .9; }
+
+    /* ─── VIDEOS ─── */
+    #videos { background: var(--navy); border-radius: 24px; max-width: 1200px; margin: 0 auto 0; padding: 64px 32px; }
+    #videos h2 { color: white; }
+    #videos .section-label { color: #00d46a; }
+    #videos .lead { color: rgba(255,255,255,.65); }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; margin-top: 40px;
+    }
+    .video-card {
+      position: relative; border-radius: 10px; overflow: hidden;
+      background: #1a2a3a; cursor: pointer;
+      aspect-ratio: 16/9; transition: transform .2s, box-shadow .2s;
+    }
+    .video-card:hover { transform: scale(1.03); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+    .video-card video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .play-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.3); transition: background .2s;
+    }
+    .video-card:hover .play-overlay { background: rgba(0,0,0,.15); }
+    .play-btn {
+      width: 52px; height: 52px; background: rgba(255,255,255,.9);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 1.2rem;
+    }
+    .video-num {
+      position: absolute; top: 8px; right: 10px;
+      background: var(--green); color: white; font-size: .7rem;
+      font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    }
+
+    /* ─── LIGHTBOX ─── */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.95); align-items: center; justify-content: center;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox video { max-width: 90vw; max-height: 85vh; border-radius: 10px; outline: none; }
+    #lb-close {
+      position: absolute; top: 24px; right: 28px;
+      background: none; border: none; color: white; font-size: 2rem;
+      cursor: pointer; line-height: 1; opacity: .8; transition: opacity .2s;
+    }
+    #lb-close:hover { opacity: 1; }
+
+    /* ─── DONATE ─── */
+    #donate { background: none; }
+    .donate-intro { max-width: 680px; margin-bottom: 48px; }
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .method-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 28px;
+      border-top: 4px solid transparent;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .method-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .method-card.primary { border-top-color: var(--green); }
+    .method-card.secondary { border-top-color: var(--gold); }
+    .method-card.tertiary { border-top-color: #25D366; }
+    .method-card.quaternary { border-top-color: #7C3AED; }
+    .method-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .method-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .method-card p { font-size: .9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+    .method-badge {
+      display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase;
+    }
+    .badge-recommended { background: #E6F7EE; color: var(--green); }
+    .badge-live { background: #FEF3C7; color: #B45309; }
+    .badge-instant { background: #E0E7FF; color: #3730A3; }
+    .bank-details {
+      background: var(--cream); border-radius: 8px; padding: 14px;
+      font-size: .9rem; margin-bottom: 14px; border: 1px solid var(--border);
+    }
+    .bank-details .row { display: flex; justify-content: space-between; padding: 3px 0; }
+    .bank-details .label { color: var(--muted); font-size: .82rem; }
+    .bank-details .val { font-weight: 600; color: var(--navy); }
+    .btn-copy {
+      width: 100%; padding: 12px; background: var(--navy); color: white;
+      border: none; border-radius: 8px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; transition: background .2s; display: flex; align-items: center;
+      justify-content: center; gap: 6px;
+    }
+    .btn-copy:hover { background: #1a3050; }
+    .btn-copy.copied { background: var(--green); }
+    .btn-link {
+      display: block; text-align: center; text-decoration: none;
+      padding: 12px; border-radius: 8px; font-weight: 600; font-size: .9rem;
+      transition: opacity .2s;
+    }
+    .btn-link:hover { opacity: .85; }
+    .btn-green { background: var(--green); color: white; }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-gotyaback { background: #7C3AED; color: white; }
+    .btn-outline {
+      border: 2px solid var(--border); color: var(--muted);
+      background: white;
+    }
+
+    /* ─── LEDGER ─── */
+    #ledger { background: white; border-radius: 24px; padding: 48px 40px; box-shadow: var(--shadow); max-width: 900px; }
+    .ledger-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+    .ledger-total { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--green); font-weight: 700; }
+    .ledger-count { font-size: .88rem; color: var(--muted); }
+    .ledger-table { width: 100%; border-collapse: collapse; }
+    .ledger-table th {
+      text-align: left; font-size: .78rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted); padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+    .ledger-table td { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .ledger-table tr:last-child td { border-bottom: none; }
+    .donor-name { font-weight: 600; color: var(--navy); }
+    .donor-msg { font-size: .88rem; color: var(--muted); margin-top: 2px; }
+    .donor-amount { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--green); }
+    .donor-date { font-size: .82rem; color: var(--muted); text-align: right; }
+    .ledger-empty { text-align: center; padding: 48px 24px; color: var(--muted); }
+    .ledger-empty p { margin-top: 8px; }
+    .ledger-cta {
+      margin-top: 28px; background: var(--cream); border-radius: 10px;
+      padding: 18px 24px; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .ledger-cta p { font-size: .9rem; color: var(--muted); }
+    .ledger-cta a {
+      background: var(--green); color: white; padding: 10px 22px;
+      border-radius: 50px; text-decoration: none; font-size: .88rem; font-weight: 600;
+      white-space: nowrap; transition: background .2s;
+    }
+    .ledger-cta a:hover { background: var(--green2); }
+
+    /* ─── SHARE ─── */
+    #share { text-align: center; background: none; }
+    #share h2 { margin-bottom: 10px; }
+    #share .lead { margin: 0 auto 36px; }
+    .share-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: .95rem;
+      text-decoration: none; transition: transform .15s, box-shadow .15s;
+      border: none; cursor: pointer;
+    }
+    .share-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+    .share-fb { background: #1877F2; color: white; }
+    .share-wa { background: #25D366; color: white; }
+    .share-tw { background: #000; color: white; }
+    .share-copy { background: var(--navy); color: white; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.55);
+      text-align: center; padding: 36px 24px; font-size: .85rem; line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,.8); }
+    .flag { font-size: 1.1rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .goal-numbers { gap: 24px; }
+      .ledger-header { flex-direction: column; }
+      #ledger { padding: 32px 24px; }
+      section { padding: 56px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .methods-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Scroll-into-view animation */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Mila & Lienka 🇳🇿</span>
+  <a href="#donate" class="nav-cta">Donate Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <img src="media/hero.png" class="hero-bg" alt="Mila and Lienka at a sports fundraiser" loading="eager">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">🏀 Sports Fundraiser · Christchurch, NZ</div>
+    <h1>Help Mila<br>& Lienka</h1>
+    <p>Two sisters. One goal. $3,000 NZD to make their<br>biggest sports dream a reality.</p>
+
+    <div class="goal-block">
+      <div class="goal-numbers">
+        <div class="goal-stat">
+          <span class="num" id="raised-amount">$0</span>
+          <span class="lbl">Raised so far</span>
+        </div>
+        <div class="goal-stat">
+          <span class="num">$3,000</span>
+          <span class="lbl">NZD goal</span>
+        </div>
+        <div class="goal-stat">
+          <span class="num" id="donor-count">0</span>
+          <span class="lbl">Donors</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-fill" id="hero-bar"></div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#donate" class="btn-primary">Give Now — It's Easy</a>
+      <a href="#story" class="btn-secondary">Read Their Story</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    scroll to explore
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="reveal">
+    <div class="section-label">Who are they?</div>
+    <h2>Two sisters chasing the<br>same dream</h2>
+    <p class="lead">Mila and Lienka are Christchurch girls who live and breathe sport — basketball, competitive events, and everything in between. They're at the age where opportunity knocks once, and where showing up matters more than anything.</p>
+  </div>
+
+  <div class="story-grid reveal">
+    <div class="story-text">
+      <p>Our mum, Elanza, works hard to give us every opportunity she can. We want to do something she can be proud of — and we need a little help from our community to get there.</p>
+      <p>We're not asking for a handout. We're asking for a hand. Every dollar you give goes directly toward our sports journey — equipment, registrations, and the things that make the difference between watching from the sideline and stepping onto the court.</p>
+      <p><strong>We raised $3,000 as our target</strong> because that's exactly what it costs to get us where we need to be. Not a cent more. And we promise to make every one of those dollars count.</p>
+      <p>Our uncle Stiaan built our cousin Kira-Lee a page just like this one for her hockey tour — and the Christchurch community showed up. <strong>We're asking you to show up for us too.</strong></p>
+    </div>
+    <div class="story-cards">
+      <div class="story-card">
+        <h3>🏀 Mila</h3>
+        <p>Competitive basketball player, waterpolo veteran, and all-round athlete. Mila has represented her school across multiple sports and isn't slowing down.</p>
+      </div>
+      <div class="story-card">
+        <h3>⭐ Lienka</h3>
+        <p>Lienka brings the energy and the heart. Together with Mila, they've grown up on the sidelines of every sport imaginable — now it's their turn to compete.</p>
+      </div>
+      <div class="story-card">
+        <h3>📍 Christchurch, New Zealand</h3>
+        <p>Born and raised in Christchurch, this family knows what community means. If you've ever been helped by someone in this city, now's your chance to pay it forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div style="max-width:1100px; margin: 0 auto; padding: 0 24px;">
+  <div class="trust-bar reveal">
+    <div class="trust-item"><span class="icon">✅</span><span>100% goes to Mila & Lienka</span></div>
+    <div class="trust-item"><span class="icon">📋</span><span>Every donation logged publicly</span></div>
+    <div class="trust-item"><span class="icon">🏦</span><span>NZ bank transfer — no fees</span></div>
+    <div class="trust-item"><span class="icon">💬</span><span>WhatsApp direct to Elanza</span></div>
+    <div class="trust-item"><span class="icon">🇳🇿</span><span>Verified Christchurch family</span></div>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+<div style="padding: 0 24px 80px; max-width: 1200px; margin: 0 auto;">
+  <section id="videos" class="reveal">
+    <div class="section-label">See for Yourself</div>
+    <h2>Their story, in their own words</h2>
+    <p class="lead">Watch Mila and Lienka in action. 18 real moments — the training, the laughs, the hustle. This is who you're helping.</p>
+
+    <div class="video-grid" id="video-grid">
+      <!-- generated by JS -->
+    </div>
+  </section>
+</div>
+
+<!-- DONATE -->
+<section id="donate">
+  <div class="donate-intro reveal">
+    <div class="section-label">Ways to Give</div>
+    <h2>Every dollar<br>makes the difference</h2>
+    <p class="lead">Choose the way that works for you. Bank transfer is the most popular in NZ (no fees, instant, trusted). WhatsApp is the most personal. All paths get to the same place — Mila and Lienka closer to their goal.</p>
+  </div>
+
+  <div class="methods-grid reveal">
+
+    <!-- 1. BANK TRANSFER -->
+    <div class="method-card primary">
+      <span class="method-icon">🏦</span>
+      <span class="method-badge badge-recommended">✓ Most Popular</span>
+      <h3>Direct Bank Transfer</h3>
+      <p>Free, fast, and the most trusted way to give in NZ. No platform fees — every dollar reaches Mila & Lienka.</p>
+      <div class="bank-details">
+        <div class="row"><span class="label">Account Name</span><span class="val">Elanza Muller</span></div>
+        <div class="row"><span class="label">Bank Account</span><span class="val" id="bank-num">[ADD BANK ACCOUNT]</span></div>
+        <div class="row"><span class="label">Reference</span><span class="val">MilaLienka</span></div>
+        <div class="row"><span class="label">Particulars</span><span class="val">Your Name</span></div>
+      </div>
+      <button class="btn-copy" id="copy-btn" onclick="copyBank()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Bank Details
+      </button>
+    </div>
+
+    <!-- 2. WHATSAPP -->
+    <div class="method-card tertiary">
+      <span class="method-icon">💬</span>
+      <span class="method-badge badge-live">⚡ Most Personal</span>
+      <h3>WhatsApp Pledge</h3>
+      <p>Message Elanza directly on WhatsApp to pledge your donation. She'll confirm and send bank details personally.</p>
+      <p style="font-size:.85rem; color:var(--muted); margin-bottom:20px;">Elanza Muller · Christchurch, NZ<br>+64 22 565 8925</p>
+      <a class="btn-link btn-whatsapp"
+         href="https://wa.me/64225658925?text=Hi%20Elanza!%20I%20want%20to%20donate%20to%20Mila%20%26%20Lienka's%20fundraiser.%20How%20can%20I%20help%3F"
+         target="_blank" rel="noopener">
+        💬 Open WhatsApp
+      </a>
+    </div>
+
+    <!-- 3. GOT YA BACK -->
+    <div class="method-card secondary">
+      <span class="method-icon">🌐</span>
+      <span class="method-badge badge-instant">🔒 Secure Platform</span>
+      <h3>Got Ya Back</h3>
+      <p>NZ's trusted community fundraising platform. Card payments accepted. Your donation is tracked and verified on the platform.</p>
+      <p style="font-size:.85rem; color:var(--muted); margin-bottom:20px;">Accepts Visa, Mastercard & PayPal. NZD supported.</p>
+      <a class="btn-link btn-gotyaback" href="https://gotyaback.co.nz" target="_blank" rel="noopener">
+        🌐 Donate via Got Ya Back
+      </a>
+    </div>
+
+    <!-- 4. CREDIT CARD (STRIPE) -->
+    <div class="method-card quaternary">
+      <span class="method-icon">💳</span>
+      <span class="method-badge badge-instant">🔒 Stripe Secure</span>
+      <h3>Credit / Debit Card</h3>
+      <p>Prefer to pay by card? Donate securely online via Stripe — Visa, Mastercard, Apple Pay & Google Pay accepted.</p>
+      <p style="font-size:.85rem; color:var(--muted); margin-bottom:20px;">Stripe is PCI-compliant and used by millions of NZ businesses. Your card details are never shared.</p>
+      <a class="btn-link" style="background:#635BFF; color:white;" href="#" target="_blank" rel="noopener"
+         onclick="alert('Add your Stripe Payment Link URL here. Create one at dashboard.stripe.com → Payment Links.')">
+        💳 Donate by Card
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIVE LEDGER -->
+<div style="max-width:1100px; margin: 0 auto; padding: 0 24px 80px;">
+  <section id="ledger" class="reveal">
+    <div class="ledger-header">
+      <div>
+        <div class="section-label">Live Donation Ledger</div>
+        <h2 style="margin-bottom:4px;">Every donor, publicly<br>acknowledged</h2>
+        <p class="ledger-count" id="ledger-count">Loading...</p>
+      </div>
+      <div class="ledger-total" id="ledger-total">$0 NZD</div>
+    </div>
+
+    <div id="ledger-body">
+      <table class="ledger-table" id="ledger-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>Donor</th>
+            <th>Amount</th>
+            <th style="text-align:right;">Date</th>
+          </tr>
+        </thead>
+        <tbody id="ledger-rows"></tbody>
+      </table>
+      <div class="ledger-empty" id="ledger-empty">
+        <div style="font-size:2.5rem;">🌱</div>
+        <p><strong>Be the first donor!</strong></p>
+        <p>Your name will appear right here, publicly, as the person who started this.</p>
+      </div>
+    </div>
+
+    <div class="ledger-cta">
+      <p>✅ After donating via bank transfer, <strong>tell us your name and amount</strong> so we can add you to the ledger.</p>
+      <a href="https://wa.me/64225658925?text=Hi%20Elanza!%20I%20just%20donated%20$[AMOUNT]%20to%20Mila%20%26%20Lienka.%20Please%20add%20me%20to%20the%20ledger.%20My%20name%20is%20[YOUR%20NAME]." target="_blank">
+        📋 Tell us you donated
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- SHARE -->
+<section id="share">
+  <div class="section-label reveal">Spread the Word</div>
+  <h2 class="reveal">Share and multiply the impact</h2>
+  <p class="lead reveal">The most powerful thing you can do right now — even if you can't donate — is share this page. One share can unlock ten donations.</p>
+  <div class="share-btns reveal">
+    <button class="share-btn share-fb" onclick="shareToFacebook()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Share on Facebook
+    </button>
+    <a class="share-btn share-wa"
+       href="https://wa.me/?text=Help%20Mila%20%26%20Lienka%20reach%20%243%2C000!%20Two%20Christchurch%20sisters%20chasing%20their%20sports%20dreams.%20Every%20dollar%20counts%20%F0%9F%87%B3%F0%9F%87%BF%20%E2%80%94%20" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Share on WhatsApp
+    </a>
+    <button class="share-btn share-copy" onclick="copyLink()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      Copy Link
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong class="flag">🇳🇿</strong> Mila & Lienka Fundraiser &mdash; Christchurch, New Zealand</p>
+  <p>Organised by Elanza Muller &middot; WhatsApp: <a href="https://wa.me/64225658925" style="color:rgba(255,255,255,.7);">+64 22 565 8925</a></p>
+  <p style="margin-top:12px;">All funds go directly to Mila & Lienka. Every donation is logged on the public ledger above.</p>
+  <p style="margin-top:8px; font-size:.78rem;">Page built with ❤️ by the family</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lb-close" onclick="closeLightbox()">✕</button>
+  <video id="lb-video" controls playsinline></video>
+</div>
+
+<script>
+  // ─── VIDEO DATA ───────────────────────────────────────
+  const VIDEOS = Array.from({length: 18}, (_, i) => ({
+    src: `media/vid${String(i+1).padStart(2,'0')}.mp4`,
+    num: i + 1
+  }));
+
+  // ─── BUILD VIDEO GRID ─────────────────────────────────
+  const grid = document.getElementById('video-grid');
+  VIDEOS.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    card.innerHTML = `
+      <video src="${v.src}" preload="metadata" muted playsinline></video>
+      <div class="play-overlay">
+        <div class="play-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>
+        </div>
+      </div>
+      <span class="video-num">#${v.num}</span>
+    `;
+    card.addEventListener('click', () => openLightbox(v.src));
+    grid.appendChild(card);
+  });
+
+  // ─── LIGHTBOX ─────────────────────────────────────────
+  const lb = document.getElementById('lightbox');
+  const lbVid = document.getElementById('lb-video');
+  function openLightbox(src) {
+    lbVid.src = src;
+    lb.classList.add('active');
+    lbVid.play();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lbVid.pause();
+    lbVid.src = '';
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ─── LEDGER ───────────────────────────────────────────
+  const GOAL = 3000;
+
+  function formatNZD(n) {
+    return '$' + n.toLocaleString('en-NZ', {minimumFractionDigits: 0});
+  }
+
+  function renderLedger(donations) {
+    const total = donations.reduce((s, d) => s + (d.amount || 0), 0);
+    const pct   = Math.min((total / GOAL) * 100, 100);
+
+    // Hero bar + counter
+    document.getElementById('hero-bar').style.width = pct + '%';
+    animateCount('raised-amount', total, v => formatNZD(v));
+    animateCount('donor-count', donations.length);
+
+    // Ledger section
+    document.getElementById('ledger-total').textContent = formatNZD(total) + ' NZD';
+    document.getElementById('ledger-count').textContent =
+      donations.length === 0
+        ? 'No donations yet — be the first!'
+        : `${donations.length} donor${donations.length > 1 ? 's' : ''} · ${Math.round(pct)}% of goal`;
+
+    if (donations.length > 0) {
+      document.getElementById('ledger-empty').style.display = 'none';
+      const tbl = document.getElementById('ledger-table');
+      tbl.style.display = 'table';
+      const tbody = document.getElementById('ledger-rows');
+      tbody.innerHTML = '';
+      // Sort newest first
+      const sorted = [...donations].sort((a,b) => new Date(b.date) - new Date(a.date));
+      sorted.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div class="donor-name">${escHtml(d.name || 'Anonymous')}</div>
+            ${d.message ? `<div class="donor-msg">"${escHtml(d.message)}"</div>` : ''}
+          </td>
+          <td><span class="donor-amount">${formatNZD(d.amount)}</span></td>
+          <td class="donor-date">${formatDate(d.date)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function formatDate(s) {
+    try { return new Date(s).toLocaleDateString('en-NZ', {day:'numeric',month:'short',year:'numeric'}); }
+    catch { return s; }
+  }
+
+  function animateCount(id, target, fmt) {
+    const el = document.getElementById(id);
+    const dur = 1800;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(ease * target);
+      el.textContent = fmt ? fmt(val) : val;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Load ledger.json
+  fetch('ledger.json?' + Date.now())
+    .then(r => r.ok ? r.json() : [])
+    .catch(() => [])
+    .then(renderLedger);
+
+  // ─── COPY BANK ────────────────────────────────────────
+  function copyBank() {
+    const acct = document.getElementById('bank-num').textContent;
+    const text = `Account Name: Elanza Muller\nBank Account: ${acct}\nReference: MilaLienka\nParticulars: Your Name`;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.classList.add('copied');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Bank Details`;
+      }, 2500);
+    });
+  }
+
+  // ─── SHARE ────────────────────────────────────────────
+  const PAGE_URL = encodeURIComponent(window.location.href);
+  const PAGE_TITLE = encodeURIComponent('Help Mila & Lienka reach $3,000! 🇳🇿');
+
+  function shareToFacebook() {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${PAGE_URL}`, '_blank', 'width=600,height=400');
+  }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.currentTarget;
+      const orig = btn.innerHTML;
+      btn.textContent = '✓ Link Copied!';
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    });
+  }
+
+  // ─── SCROLL REVEAL ────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
