@@ -6,8 +6,8 @@ This is the index of every distinct project/business identified in the chat, ran
 
 | # | Project | Status | Live URL | Repo (this hub) | Repo (separate code repo) | Primary Contact |
 |---|---|---|---|---|---|---|
-| P1 | EM Muller Services / SAPS Police Clearance | 🟢 Active, live site, fixes pending | https://sapspoliceclearance.com | [`02_SAPS_POLICE_CLEARANCE`](../02_SAPS_POLICE_CLEARANCE/SUMMARY.md) | `911duplessis/EM-Muller-Services` (to be created) | Elanza Muller (Lal), Christchurch NZ |
-| P2 | Fundraiser — Mila & Lienka | 🔴 Urgent, overdue (promised June 30) | n/a yet | [`01_FUNDRAISER`](../01_FUNDRAISER/SUMMARY.md) | `911duplessis/Fundraiser-Mila-Lienka` (to be created) | Elanza Muller / Mila / Lienka |
+| P1 | EM Muller Services / SAPS Police Clearance | 🟢 Active, live site, fixes pending | https://sapspoliceclearance.com · **Portfolio:** https://911duplessis.github.io/Mullers/em-services/ | [`02_SAPS_POLICE_CLEARANCE`](../02_SAPS_POLICE_CLEARANCE/SUMMARY.md) | `911duplessis/EM-Muller-Services` (to be created) | Elanza Muller (Lal), Christchurch NZ |
+| P2 | Fundraiser — Mila & Lienka | 🟢 Live | https://911duplessis.github.io/Mullers/ | [`01_FUNDRAISER`](../01_FUNDRAISER/SUMMARY.md) | `911duplessis/Mullers` (`gh-pages`) | Elanza Muller / Mila / Lienka |
 | P2b | Fundraiser — Kira-Lee hockey tour | ✅ Built and live | https://911duplessis.github.io/Kira-Lee/ | [`01_FUNDRAISER`](../01_FUNDRAISER/SUMMARY.md) | `911duplessis/Kira-Lee` (already exists, keep as-is) | Stiaan du Plessis / Kira-Lee |
 | P3 | ProKids / Proteus | 🟡 Stalled — waiting on Lal | n/a (pre-launch) | [`03_PROKIDS`](../03_PROKIDS/SUMMARY.md) | `911duplessis/ProKids` (to be created) | Elanza Muller, Canterbury NZ |
 | P4 | Gratitude Content | 🟡 Media exists, unpublished | n/a | [`04_GRATITUDE_CONTENT`](../04_GRATITUDE_CONTENT/SUMMARY.md) | none — stays as folder in this hub repo | Stiaan du Plessis |
