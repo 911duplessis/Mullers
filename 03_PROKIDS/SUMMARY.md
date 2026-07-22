@@ -7,6 +7,8 @@ A children's emotional readiness and movement programme for ages 4–8 (expandin
 
 This resolves the June 2026 stall documented below: Elanza's original four open questions (commitment, school outreach, starting small, owning the positioning) are now folded into `911duplessis/ProStars/docs/90_DAY_EXECUTION_PLAN.md`, sized to her actual bandwidth rather than asking her to absorb another round of dense strategy documents.
 
+**Founder positioning note:** the blueprint leads with Elanza as an experienced children's development specialist — years of hands-on work building children's confidence, movement skills, and resilience — who recognised that parents want more than sport alone. Her Playball background is retained as supporting professional experience (and as useful competitive intelligence in `FRANCHISE_MODEL.md`), not as the headline of her story.
+
 ## Working names (historical)
 - **"ProKids"** — Stiaan's working name
 - **"Proteus"** / **"Proteus Kids Sports"** — Elanza's preferred direction (May 14–15)
@@ -45,7 +47,7 @@ Key positioning insight: **movement is one tool in the delivery, not the product
 Full day-by-day sequencing of these four items now lives in `911duplessis/ProStars/docs/90_DAY_EXECUTION_PLAN.md`.
 
 ## Elanza's qualifications
-Teacher degree, plus direct instructor experience inside Playball — which is now used as the primary competitive-differentiation source in the blueprint (`911duplessis/ProStars/docs/FRANCHISE_MODEL.md`), not just a credential. Her background makes the "Inner Readiness" / educational premium positioning highly credible.
+Teacher degree, plus years of hands-on experience delivering children's programmes across Canterbury (including with established providers such as Playball). In the blueprint, this is framed around her identity as an experienced children's development specialist — not a franchise-instructor credential — with Playball retained only as supporting competitive intelligence in `911duplessis/ProStars/docs/FRANCHISE_MODEL.md`. Her background makes the "Inner Readiness" / educational premium positioning highly credible.
 
 ## Prior prototype (`iamstiaan/Proteus`)
 A website/brand prototype was built under `iamstiaan/Proteus` (see https://iamstiaan.github.io/Proteus/) during the May 2026 work — a different GitHub account, and a generic six-sport, lion-mascot template. The new PROSTARS blueprint deliberately does not extend this prototype; see `00_INDEX/MIGRATION_PLAN.md` for the full audit and recommendation (short version: leave it archived, don't port it forward).
